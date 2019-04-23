@@ -6,6 +6,10 @@ public class mergeSort{
 	removeStopWords words = new removeStopWords();
 	ArrayList<String> wordList = words.getNonStepWords();
 
-	System.out.print("Sorting"+wordList);
+	sort(wordList);
+	}
+
+	public static void sort(ArrayList<String> words){
+		System.out.print("Sorting" + words);
 	}
 }
