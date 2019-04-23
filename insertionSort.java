@@ -9,8 +9,7 @@ public class insertionSort{
 	long startTime = System.nanoTime();
 	sort(wordList,100);
 	long endTime   = System.nanoTime();
-	long totalTime = endTime - startTime;
-	System.out.println(totalTime);
+	System.out.println(startTime-endTime);
 
 	// sort(wordList,100);
 	// sort(wordList,200);
