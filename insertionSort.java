@@ -6,10 +6,28 @@ public class insertionSort{
 	removeStopWords words = new removeStopWords();
 	ArrayList<String> wordList = words.getNonStepWords();
 
-	sort(wordList);
+	long startTime = System.nanoTime();
+	sort(wordList,100);
+	long endTime   = System.nanoTime();
+	long totalTime = endTime - startTime;
+	System.out.println(totalTime);
+
+	// sort(wordList,100);
+	// sort(wordList,200);
+	// sort(wordList,300);
+	// sort(wordList,1000);
 	}
 
-	public static void sort(ArrayList<String> words){
-		System.out.print("Sorting" + words);
+	public static void sort(ArrayList<String> words,int count){
+		if (count > words.size()){ count = words.size();}
+		for (int i = 0; i< count; i++){
+			String currentvalue = words.get(i);
+			int position = i;
+			while (position > 0 && words.get(position-1).compareTo(currentvalue) >= 0){
+				words.set(position,words.get(position-1));
+				position -= 1;
+			}
+			words.set(position,currentvalue);
+		}
 	}
 }
