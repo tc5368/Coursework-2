@@ -3,22 +3,16 @@ import java.util.*;
 
 public class insertionSort{
 	public static void main(String[] args){
-	removeStopWords words = new removeStopWords();
-	ArrayList<String> wordList = words.getNonStepWords();
-
-	long startTime = System.nanoTime();
-	sort(wordList,100);
-	long endTime   = System.nanoTime();
-	System.out.println(startTime-endTime);
-
-	// sort(wordList,100);
-	// sort(wordList,200);
-	// sort(wordList,300);
-	// sort(wordList,1000);
+		for (int i = 100; i < 500; i += 100){
+			removeStopWords words = new removeStopWords();
+			ArrayList<String> wordList = words.getNonStepWords();
+			sort(wordList,i);
+		} 
 	}
 
 	public static void sort(ArrayList<String> words,int count){
 		if (count > words.size()){ count = words.size();}
+		long startTime = System.nanoTime();
 		for (int i = 0; i< count; i++){
 			String currentvalue = words.get(i);
 			int position = i;
@@ -28,5 +22,8 @@ public class insertionSort{
 			}
 			words.set(position,currentvalue);
 		}
+		long endTime = System.nanoTime();
+		System.out.println("Sorting "+count+" items took: " + (endTime-startTime) + " Nanoseconds");
+
 	}
 }
