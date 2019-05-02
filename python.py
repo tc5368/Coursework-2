@@ -39,13 +39,21 @@ def mergeSort(x):
 	return result
 
 def insertionSort(alist):
+	c = 0
+	s = 0
 	for i in range(1,len(alist)):
 		currentvalue = alist[i]
+		s += 1
 		position = i
 		while position>0 and alist[position-1]>currentvalue:
+			c += 1
+			s += 1
 			alist[position]=alist[position-1]
 			position -= 1
 		alist[position]=currentvalue
+		s +=1 
+		c +=1
+	print(c,s)
 	return alist
 
 def main():
@@ -100,3 +108,9 @@ class circularQueue():
 
 	def getFrontElement(self):
 		return self.data[self.fpointer]
+
+
+
+
+
+
