@@ -13,7 +13,6 @@ public class insertionSort{
 			long startTime = System.nanoTime();
 			insert(toSort);
 			long endTime = System.nanoTime();
-			System.out.print(toSort+"\n\n");
 			System.out.println("Sorting "+i+" items took: " + (endTime-startTime) + " Nanoseconds");
 			System.out.print("Took a total of: "+swaps+" Swaps, and "+comparisons+" Comparisons.\n\n");
 		} 
@@ -24,13 +23,13 @@ public class insertionSort{
 			String currentvalue = words.get(i);
 			int position = i;
 			while (position > 0 && words.get(position-1).compareTo(currentvalue) >= 0){
-				comparisons ++;
+				swaps ++;
 				words.set(position,words.get(position-1));
-				swaps++;
+				comparisons++;
 				position -= 1;
 			}
 			words.set(position,currentvalue);
-			swaps ++;
+			comparisons ++;
 		}
 	}
 }
