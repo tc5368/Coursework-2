@@ -52,6 +52,11 @@ public class MyArrayQueue
 		 return queue[rear];
 	 }
 
+
+
+
+
+
 	public void enqueue(Object theElement){
 		if (rear == queue.length){rear = 0;}
 		if (queue[rear] == null){
@@ -88,6 +93,12 @@ public class MyArrayQueue
 	System.out.print("After Dequeue: "+Arrays.toString(queue)+"\n");
 	return returning;
 	}
+
+
+
+
+
+
 
 	/** test program */
 	public static void main(String [] args)

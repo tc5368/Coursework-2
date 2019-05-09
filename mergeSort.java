@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class mergeSort{
+	static int swaps = 0;
+	static int comparisons = 0;
 	public static void main(String[] args){
 		for (int i = 100; i < 500; i += 100){
 			removeStopWords words = new removeStopWords();
@@ -12,11 +14,11 @@ public class mergeSort{
 			long endTime = System.nanoTime();
 			System.out.print(toSort+"\n\n");
 			System.out.println("Sorting "+i+" items took: " + (endTime-startTime) + " Nanoseconds");
-			//System.out.print("Took a total of: "+swaps+" Swaps, and "+comparisons+" Comparisons.\n\n");
+			System.out.print("Took a total of: "+swaps+" Swaps, and "+comparisons+" Comparisons.\n\n");
 		} 
 	}
 
-	private static void merge(ArrayList<String> words) {
+	public static void merge(ArrayList<String> words) {
 		if (words.size()<=1) {return;}
 		int mid = words.size()/2;
 

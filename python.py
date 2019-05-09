@@ -39,22 +39,20 @@ def mergeSort(x):
 	return result
 
 def insertionSort(alist):
-	c = 0
-	s = 0
 	for i in range(1,len(alist)):
 		currentvalue = alist[i]
-		s += 1
 		position = i
 		while position>0 and alist[position-1]>currentvalue:
-			c += 1
-			s += 1
 			alist[position]=alist[position-1]
 			position -= 1
+			print(alist)
+			import time
+			time.sleep(1)
 		alist[position]=currentvalue
-		s +=1 
-		c +=1
-	print(c,s)
 	return alist
+
+insertionSort([99,4,6,2,3,4,6,9,5,3,8,9,0,8,6,4,3,2,1])
+
 
 def main():
 	a = removeStopwords('GPT2.txt')
