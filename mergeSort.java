@@ -4,16 +4,18 @@ import java.util.*;
 public class mergeSort{
 	static int swaps = 0;
 	static int comparisons = 0;
+
 	public static void main(String[] args){
-		for (int i = 100; i < 500; i += 100){
+		for (int i = 100; i <= 500; i += 100){
 			removeStopWords words = new removeStopWords();
 			ArrayList<String> wordList = words.getNonStepWords();
+			if (i > wordList.size()){i = wordList.size();}
 			ArrayList<String> toSort = new ArrayList<String>(wordList.subList(0,i));
-			long startTime = System.nanoTime();
+			double startTime = System.nanoTime();
 			merge(toSort);
-			long endTime = System.nanoTime();
-			System.out.print(toSort+"\n\n");
-			System.out.println("Sorting "+i+" items took: " + (endTime-startTime) + " Nanoseconds");
+			double endTime = System.nanoTime();
+			System.out.print(	"\n\n");
+			System.out.println("Sorting "+i+" items took: " + (endTime-startTime)/1000000000 + " Seconds");
 			System.out.print("Took a total of: "+swaps+" Swaps, and "+comparisons+" Comparisons.\n\n");
 		} 
 	}
@@ -42,12 +44,16 @@ public class mergeSort{
 			else{
 				words.add(right.remove(0));
 			}
+			swaps++;
+			comparisons++;
 		}
 		while(left.size()!=0){
 			words.add(left.remove(0));
+			swaps++;
 		}
 		while(right.size()!=0){
 			words.add(right.remove(0));
+			swaps++;
 		}
 	}
 }
