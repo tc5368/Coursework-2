@@ -10,10 +10,10 @@ public class insertionSort{
 			ArrayList<String> wordList = words.getNonStepWords();
 			if (i > wordList.size()){i = wordList.size();}
 			ArrayList<String> toSort = new ArrayList<String>(wordList.subList(0,i));
-			long startTime = System.nanoTime();
+			double startTime = System.nanoTime();
 			insert(toSort);
-			long endTime = System.nanoTime();
-			System.out.println("Sorting "+i+" items took: " + (endTime-startTime) + " Nanoseconds");
+			double endTime = System.nanoTime();
+			System.out.println("Sorting "+i+" items took: " + (endTime-startTime)/100000000 + " Seconds");
 			System.out.print("Took a total of: "+swaps+" Swaps, and "+comparisons+" Comparisons.\n\n");
 		} 
 	}
